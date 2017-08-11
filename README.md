@@ -2,7 +2,7 @@
 
 This morning, you'll be building a weather app using React!!
 
-You'll be using the Open Weather API that we've used before a couple of times.
+You'll be using the [Open Weather API](https://openweathermap.org/api) that we've used before a couple of times.
 
 ## Wireframes!!
 
