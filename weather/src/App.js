@@ -39,7 +39,8 @@ class App extends Component {
         humidity: res.main.humidity,
         windspeed: res.wind.speed,
         sunrise: humanbeanSunrise,
-        sunset: humanbeanSunset
+        sunset: humanbeanSunset,
+        zip: zip
       })
     })
   }
@@ -62,41 +63,42 @@ class App extends Component {
           <input type="text" value={this.state.value} onChange={this.handleChange} />
           <input type="submit" onClick={this.handleClick} />
         </form>
-
-        <div>
-          weather for {this.state.city}, {this.state.country}
-        </div>
-        <div>
-          temp {this.state.temp} fahrenheit
-        </div>
-        <div>
-          {this.state.temp_min} fahrenheit min
-        </div>
-        <div>
-          {this.state.temp_max} fahrenheit max
-        </div>
-        <div>
-          {this.state.humidity} humidity
-        </div>
-        <div>
-          {this.state.windspeed} windspeed
-        </div>
-        <div>
-          {this.state.sunrise} sunrise
-        </div>
-        <div>
-          {this.state.sunset} sunset
-        </div>
+        {this.state.temp ? <City city={this.state.city} temp={this.state.temp} temp_min={this.state.temp_min} temp_max={this.state.temp_max} humidity={this.state.humidity} windspeed={this.state.windspeed} sunrise={this.state.sunrise} sunset={this.state.sunset} country={this.state.country} zip={this.state.zip} /> : <div> LOADING </div> }
       </div>
     );
   }
 }
 //var myDate = new Date( your epoch date *1000);
-// class City extends Component {
-//   render(){
-//     return(
-//
-//     )
-//   }
-// }
+class City extends Component {
+  render(){
+    return(
+      <div>
+        <div>
+          Weather for {this.props.city}, {this.props.country}, {this.props.zip}
+        </div>
+        <div>
+          {this.props.temp}°F
+        </div>
+        <div>
+          {this.props.temp_min}°F min
+        </div>
+        <div>
+          {this.props.temp_max}°F max
+        </div>
+        <div>
+          {this.props.humidity} humidity
+        </div>
+        <div>
+          {this.props.windspeed} windspeed
+        </div>
+        <div>
+          Sunrise is at: {this.props.sunrise}
+        </div>
+        <div>
+          Sunset is at: {this.props.sunset}
+        </div>
+      </div>
+    )
+  }
+}
 export default App;
