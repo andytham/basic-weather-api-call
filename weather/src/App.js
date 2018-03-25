@@ -15,6 +15,7 @@ class App extends Component {
   }
 
   componentDidMount(){
+    console.log('andy sucks, love cameron')
     // fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${this.state.value},us&APPID=10265925c20369085517b922da616764`)
     // .then(res => res.json())
     // .then(res => {
